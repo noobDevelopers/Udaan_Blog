@@ -66,7 +66,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blog.urls'
 
-
+WHITENOISE_MANIFEST_STRICT = False
 # servers = os.environ['MEMCACHIER_SERVERS']
 # username = os.environ['MEMCACHIER_USERNAME']
 # password = os.environ['MEMCACHIER_PASSWORD']
