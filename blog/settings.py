@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','#68eib0erwqw6hn9%djbmdkh6rlw+fn
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 # DEBUG = False
 
-# ALLOWED_HOSTS = ['extremeblog.herokuapp.com','ishanmishra.codes','www.ishanmishra.codes']
+# ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = ['udaan-blog.herokuapp.com']
 SITE_ID = 1
 # Application definition
@@ -299,15 +299,15 @@ prod_db  =  dj_database_url.config(conn_max_age=500)
 
 DATABASES['default'].update(prod_db)
 
-DEFAULT_FILE_STORAGE = 'blog.custom_azure.AzureMediaStorage'
-# STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
+# DEFAULT_FILE_STORAGE = 'blog.custom_azure.AzureMediaStorage'
+# # STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
 
-# STATIC_LOCATION = "static"
-MEDIA_LOCATION = "media"
+# # STATIC_LOCATION = "static"
+# MEDIA_LOCATION = "media"
 
-AZURE_ACCOUNT_NAME = os.environ.get('Azure_Account_Name', '')
-AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-# STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+# AZURE_ACCOUNT_NAME = os.environ.get('Azure_Account_Name', '')
+# AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+# # STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+# MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
