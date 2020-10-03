@@ -20,6 +20,9 @@ from django.conf.urls.static import static
 import ckeditor_uploader
 from django.contrib.sitemaps.views import sitemap 
 from blogs.sitemaps import PostSitemap
+from django.views.decorators.cache import never_cache
+
+from ckeditor_uploader import views
 
 sitemaps = {
     'post':PostSitemap,
@@ -31,4 +34,11 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+urlpatterns_ck = [
+    re_path(r'^upload/', views.upload, name='ckeditor_upload'),
+    re_path(r'^browse/', never_cache(views.browse), name='ckeditor_browse'),
+]
+
+urlpatterns = urlpatterns+urlpatterns_ck
 
