@@ -35,10 +35,5 @@ urlpatterns = [
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
-urlpatterns_ck = [
-    re_path(r'^upload/', views.upload, name='ckeditor_upload'),
-    re_path(r'^browse/', never_cache(views.browse), name='ckeditor_browse'),
-]
 
-urlpatterns = urlpatterns+urlpatterns_ck
 
