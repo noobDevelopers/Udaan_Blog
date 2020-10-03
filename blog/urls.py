@@ -37,9 +37,9 @@ urlpatterns = [
 
 
 
-urlpatterns_ck = [
-    re_path(r'^upload/', login_required(views.upload), name='ckeditor_upload'),
-    re_path(r'^browse/', never_cache(login_required(views.browse)), name='ckeditor_browse'),
-]
+# urlpatterns_ck = [
+#     re_path(r'^upload/', login_required(views.upload), name='ckeditor_upload'),
+#     re_path(r'^browse/', never_cache(login_required(views.browse)), name='ckeditor_browse'),
+# ]
 
-urlpatterns = urlpatterns+urlpatterns_ck
+# urlpatterns = urlpatterns+urlpatterns_ck
