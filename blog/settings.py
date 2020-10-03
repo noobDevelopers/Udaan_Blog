@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#68eib0erwqw6hn9%djbmdkh6rlw+fn-y(tsh*+4o407tvn&y@'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','#68eib0erwqw6hn9%djbmdkh6rlw+fn-y(tsh*+4o407tvn&y@')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # ALLOWED_HOSTS = ['extremeblog.herokuapp.com','ishanmishra.codes','www.ishanmishra.codes']
 ALLOWED_HOSTS = ['*']
@@ -298,13 +298,13 @@ prod_db  =  dj_database_url.config(conn_max_age=500)
 
 DATABASES['default'].update(prod_db)
 
-DEFAULT_FILE_STORAGE = 'useraccount.custom_azure.AzureMediaStorage'
+DEFAULT_FILE_STORAGE = 'blogs.custom_azure.AzureMediaStorage'
 # STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
 
 # STATIC_LOCATION = "static"
 MEDIA_LOCATION = "media"
 
-AZURE_ACCOUNT_NAME = "witsstorage"
+AZURE_ACCOUNT_NAME = "udaanstorage123"
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 # STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
