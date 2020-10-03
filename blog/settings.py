@@ -299,14 +299,14 @@ prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
 DEFAULT_FILE_STORAGE = 'blogs.custom_azure.AzureMediaStorage'
-STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
+# STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
 
-STATIC_LOCATION = "static"
+# STATIC_LOCATION = "static"
 MEDIA_LOCATION = "media"
 
 AZURE_ACCOUNT_NAME = os.environ.get('Azure_Account_Name', '')
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
-STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+# STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
