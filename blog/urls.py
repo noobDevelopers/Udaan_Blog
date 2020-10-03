@@ -21,7 +21,7 @@ import ckeditor_uploader
 from django.contrib.sitemaps.views import sitemap 
 from blogs.sitemaps import PostSitemap
 from django.views.decorators.cache import never_cache
-
+from django.contrib.auth.decorators import login_required
 from ckeditor_uploader import views
 
 sitemaps = {
@@ -37,3 +37,9 @@ urlpatterns = [
 
 
 
+urlpatterns_ck = [
+    re_path(r'^upload/', login_required(views.upload), name='ckeditor_upload'),
+    re_path(r'^browse/', never_cache(login_required(views.browse)), name='ckeditor_browse'),
+]
+
+urlpatterns = urlpatterns+urlpatterns_ck
