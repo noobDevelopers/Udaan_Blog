@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','#68eib0erwqw6hn9%djbmdkh6rlw+fn
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # ALLOWED_HOSTS = ['extremeblog.herokuapp.com','ishanmishra.codes','www.ishanmishra.codes']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['udaan-blog.herokuapp.com']
 SITE_ID = 1
 # Application definition
 
@@ -41,11 +41,12 @@ INSTALLED_APPS = [
     'taggit',
     'ckeditor',
     'ckeditor_uploader',
+    'storages',
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.postgres',
     'sorl.thumbnail',
-    'storages',
+    
 
     
     
