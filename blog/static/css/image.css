@@ -1,0 +1,46 @@
+@media screen and ( max-width: 1024px ) {
+    img.response { height: 85px;width: 85px; position: absolute; top: -25px; }
+    }
+    @media screen and ( min-width:1025px ) and ( max-width: 1280px ) {
+    img.response { height: 130px;width: 130px; position: absolute; top: -30px; }
+    }
+    @media screen and ( min-width: 1081px ) {
+    img.response { height: 130px;width: 130px; position: absolute; top: -30px; }
+    }
+    img.response { height: auto; }
+
+
+    @media screen and ( max-width: 1024px ) {
+        img.response2 { width: 110px; height: 110px;position:absolute; top:-50px; left: 0px; }
+        }
+        @media screen and ( min-width:1025px ) and ( max-width: 1280px ) {
+        img.response2 { width: 100%; height: auto;position:absolute; top:-50px; left: 0px; }
+        }
+        @media screen and ( min-width: 1081px ) {
+        img.response2 { width: 100%; height: auto;position:absolute; top:-50px; left: 0px; }
+        }
+        img.response2 { height: auto; }
+
+        @media screen and ( max-width: 1024px ) {
+            img.response3 { width: 100px; height:100px;position:absolute; top:-50px; left: 200px; }
+            }
+            @media screen and ( min-width:1025px ) and ( max-width: 1280px ) {
+            img.response3 { width: 100%; height: auto;position:absolute; top:-50px; left: -100px;}
+            }
+            @media screen and ( min-width: 1081px ) {
+            img.response3 { width: 100%; height: auto;position:absolute; top:-50px; left: -100px; }
+            }
+            img.response3 { height: auto; }
+
+
+        
+            @media screen and ( max-width: 1024px ) {
+                h2.response4 {visibility: hidden;  }
+                }
+                @media screen and ( min-width:1025px ) and ( max-width: 1280px ) {
+                h2.response4 {color: gold;position: absolute; top:80px;left: -50px; font-weight: bolder;   }
+                }
+                @media screen and ( min-width: 1081px ) {
+                h2.response4 { color: gold;position: absolute; top:80px;left: -50px;font-weight: bolder;  }
+                }
+                h2.response4 { color: gold;position: absolute; top:80px;left: -50px;font-weight: bolder;   }

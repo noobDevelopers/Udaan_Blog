@@ -1,0 +1,154 @@
+{%extends 'base.html'%}
+{%load static%}
+{% load thumbnail %}
+{%block content%}
+<nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a href="{%url 'home'%}"><img src="{%static 'images/logo.png'%}" class='response'></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+  
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="{%url 'home'%}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Articles</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">Team</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+    <div class="hero-wrap js-fullheight" style="background-image: url('{%static 'images/bg_4.png'%}');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+            <div class="col-md-12 ftco-animate">
+                <h2 class="subheading">Hello! Welcome to</h2>
+                <h1 class="mb-4 mb-md-0">BLOG</h1>
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="text">
+                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                            <div class="mouse">
+                                          <a href="#" class="mouse-icon">
+                                              <div class="mouse-wheel"><span class="ion-ios-arrow-round-down"></span></div>
+                                          </a>
+                                      </div>
+                                  </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <link rel="stylesheet" href="{%static 'css/search.css'%}">
+      <form action="." method="get" id="formsearch">
+        <input type="search" placeholder="Type a keyword" name="search" id="inputsearch" required > 
+        <i class="fa fa-search"></i>
+      </form>
+ 
+
+
+
+                <section class="ftco-section" >
+     
+                  <div class="container">
+                   
+                      <div class="row">
+                          <div class="col-md-12">
+                            <h2 style="text-align: center; margin-bottom: 50px; color: black; font-weight: bold; text-decoration: underline;" >Posts containing "{{ query }}"</h2> 
+                            <h3 style="text-align: center; margin-bottom: 50px; color: black;"> 
+                              <!-- display number of matching queries -->
+                              {% with results.count as total_results %} 
+                              Found {{ total_results }} result{{ total_results|pluralize }} 
+                              {% endwith %} 
+                          </h3>
+                           {%for post in results%}
+                              <div class="case">
+                                  <div class="row">
+                                      <div class="col-md-6 col-lg-6 col-xl-8 d-flex">
+                                        {% thumbnail post.image '1280x960' crop='center' as img %}
+                                       <a href="{{post.get_absolute_url}}"> <img src="{{img.url}}" alt="" class="img-fluid"></a>
+                                       {% endthumbnail %}
+                                      </div>
+                                      <div class="col-md-6 col-lg-6 col-xl-4 d-flex">
+                                          <div class="text w-100 pl-md-3">
+                                              
+                                              <h2><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
+                                              <ul class="media-social list-unstyled">
+                                   <!-- <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                   <li class="ftco-animate"><a href="http://www.facebook.com/sharer.php?u={{post.get_absolute_url}}"><span class="icon-facebook"></span></a></li>
+                                   <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li> -->
+                                   <p class="tags"> Tags: 
+                                     {% for tag in post.tags.all %} 
+                                     <a href="{% url 'post_list_by_tag' tag.slug %}" style="font-weight: bold;"> {{ tag.name }} </a> 
+                                     {% if not forloop.last %}, 
+                                     {% endif %} 
+                                     {% endfor %}
+
+                                 </p>
+         
+                                 </ul>
+                                              <div class="meta">
+                                                  <p class="mb-0"><a href="#">{{post.date}}</a> | <a href="#">{{post.read_time}} min read</a></p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              {% empty %} 
+                              <p>There are no results for your query.</p>
+                              {%endfor%}
+                               
+                   
+                            </div>
+         
+                           
+         
+         
+                          </section>
+
+
+                          <footer class="ftco-footer ftco-bg-dark ftco-section">
+                            <div class="container">
+                              <div class="row mb-5">
+                                <div class="col-md">
+                                  <div class="ftco-footer-widget mb-4">
+                                    <h2 class="logo">BLOG</h2>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                                      
+                                      <li class="ftco-animate"><a href="{% url 'post_feed' %}"><span class="oi oi-rss-alt"></span></a><p>Subscribe to my RSS feed to get latest updates automatically</p></li>
+                                      
+                                    </ul>
+                                  </div>
+                                </div>
+                                <div class="col-md">
+                                   <img src="{%static 'images/blog.png'%}" class="response2" >
+                                   
+                                </div>
+                                <div class="col-md">
+                                  <h2 class="response4">POWERED BY</h2>
+                                </div>
+                                <div class="col-md">
+                                  <img src="{%static 'images/ishanextreme.png'%}" class="response3" >
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12 text-center">
+                          
+                                  <p>
+                           © <a href="https://github.com/ishanExtreme">ishanExtreme</a> {% now "Y"%}
+                         </p>
+                                </div>
+                              </div>
+                            </div>
+                          </footer>
+                         
+                          
+                          <!-- loader -->
+                          <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+          {%endblock%}
+          
