@@ -66,53 +66,53 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blog.urls'
 
-WHITENOISE_MANIFEST_STRICT = False
-# servers = os.environ['MEMCACHIER_SERVERS']
-# username = os.environ['MEMCACHIER_USERNAME']
-# password = os.environ['MEMCACHIER_PASSWORD']
 
-# CACHES = {
-#     'default': {
-#         # Use pylibmc
-#         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+servers = os.environ['MEMCACHIER_SERVERS']
+username = os.environ['MEMCACHIER_USERNAME']
+password = os.environ['MEMCACHIER_PASSWORD']
 
-#         # TIMEOUT is not the connection timeout! It's the default expiration
-#         # timeout that should be applied to keys! Setting it to `None`
-#         # disables expiration.
-#         'TIMEOUT': None,
+CACHES = {
+    'default': {
+        # Use pylibmc
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
 
-#         'LOCATION': servers,
+        # TIMEOUT is not the connection timeout! It's the default expiration
+        # timeout that should be applied to keys! Setting it to `None`
+        # disables expiration.
+        'TIMEOUT': None,
 
-#         'OPTIONS': {
-#             # Use binary memcache protocol (needed for authentication)
-#             'binary': True,
-#             'username': username,
-#             'password': password,
-#             'behaviors': {
-#                 # Enable faster IO
-#                 'no_block': True,
-#                 'tcp_nodelay': True,
+        'LOCATION': servers,
 
-#                 # Keep connection alive
-#                 'tcp_keepalive': True,
+        'OPTIONS': {
+            # Use binary memcache protocol (needed for authentication)
+            'binary': True,
+            'username': username,
+            'password': password,
+            'behaviors': {
+                # Enable faster IO
+                'no_block': True,
+                'tcp_nodelay': True,
 
-#                 # Timeout settings
-#                 'connect_timeout': 2000, # ms
-#                 'send_timeout': 750 * 1000, # us
-#                 'receive_timeout': 750 * 1000, # us
-#                 '_poll_timeout': 2000, # ms
+                # Keep connection alive
+                'tcp_keepalive': True,
 
-#                 # Better failover
-#                 'ketama': True,
-#                 'remove_failed': 1,
-#                 'retry_timeout': 2,
-#                 'dead_timeout': 30,
-#             }
-#         }
-#     }
-# }
+                # Timeout settings
+                'connect_timeout': 2000, # ms
+                'send_timeout': 750 * 1000, # us
+                'receive_timeout': 750 * 1000, # us
+                '_poll_timeout': 2000, # ms
 
-# USER_AGENTS_CACHE = 'default'
+                # Better failover
+                'ketama': True,
+                'remove_failed': 1,
+                'retry_timeout': 2,
+                'dead_timeout': 30,
+            }
+        }
+    }
+}
+
+USER_AGENTS_CACHE = None
 
 TEMPLATES = [
     {
@@ -260,6 +260,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
+TIME_INPUT_FORMATS = [
+    '%I:%M %p',  # 6:22:44 PM
+  
+]
 
 
 # Static files (CSS, JavaScript, Images)
