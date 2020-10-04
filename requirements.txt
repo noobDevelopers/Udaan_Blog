@@ -65,3 +65,4 @@ ua-parser==0.10.0
 pylibmc==1.5.2
 django-el-pagination==3.3.0
 cloudinary==1.20.0
+django-cloudinary-storage==0.3.0
