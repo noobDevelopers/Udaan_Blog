@@ -53,13 +53,6 @@ INSTALLED_APPS = [
     
 ]
 
-cloudinary.config(
-  cloud_name = os.environ.get('CLOUD_NAME'),
-  api_key = os.environ.get('API_KEY'),
-  api_secret = os.environ.get('API_SECRET'),
-  secure = True
-)
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -284,7 +277,7 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
-
+CKEDITOR_UPLOAD_PATH = "uploads/"
 import dj_database_url 
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
@@ -312,4 +305,3 @@ CLOUDINARY_STORAGE = {
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
