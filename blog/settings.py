@@ -42,16 +42,23 @@ INSTALLED_APPS = [
     'taggit',
     'ckeditor',
     'ckeditor_uploader',
-    'storages',
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.postgres',
     'sorl.thumbnail',
+    'cloudinary',
     
 
     
     
 ]
+
+cloudinary.config(
+  cloud_name = os.environ.get('CLOUD_NAME'),
+  api_key = os.environ.get('API_KEY'),
+  api_secret = os.environ.get('API_SECRET'),
+  secure = True
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -284,6 +291,9 @@ prod_db  =  dj_database_url.config(conn_max_age=500)
 
 DATABASES['default'].update(prod_db)
 
+
+
+
 # DEFAULT_FILE_STORAGE = 'blog.custom_azure.AzureMediaStorage'
 # # STATICFILES_STORAGE = 'useraccount.custom_azure.AzureStaticStorage'
 
@@ -295,4 +305,11 @@ DATABASES['default'].update(prod_db)
 # # STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 # MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
-# CKEDITOR_UPLOAD_PATH = "uploads/"
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME', ''),
+    'API_KEY': os.environ.get('API_KEY', ''),
+    'API_SECRET': os.environ.get('API_SECRET', ''),
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
