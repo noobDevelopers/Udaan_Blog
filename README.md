@@ -6,12 +6,14 @@
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
 ![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku)
+
 Dynamic personal blogging site using django
+<a href="https://udaan-blog.herokuapp.com/">CLICK HERE</a> to see the site
 
 # Tools/Languages Used
   
-  * Django framework(Python based) is used as a backend <a href='#'>See Tutorial Here</a>
-  * HTML/CSS, JavaScript <a href='#'>See Tutorial Here</a>
+  * Django framework(Python based) is used as a backend
+  * HTML/CSS, JavaScript
   
 # Images
 
