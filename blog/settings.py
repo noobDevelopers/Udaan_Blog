@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'sorl.thumbnail',
     'cloudinary',
+    'cloudinary_storage',
     
 
     
