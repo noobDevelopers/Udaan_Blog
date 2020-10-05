@@ -230,7 +230,7 @@ CKEDITOR_CONFIGS = {
             'mathjax',#use Mathjax
             'emoji',
            'wordcount',
-            'autocorrect',
+            # 'autocorrect',
             'scayt',
             'imageresponsive',
         
