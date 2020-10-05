@@ -164,40 +164,38 @@ DATABASES = {
 CKEDITOR_BROWSE_SHOW_DIRS = True
 CKEDITOR_CONFIGS = {
     'default': {
-        'skin': 'moono',
-        # 'skin': 'office2013',
-        'toolbar_Basic': [
-            ['Source', '-', 'Bold', 'Italic']
-        ],
+        'skin': 'icy_orange',
+        
         'toolbar_YourCustomToolbarConfig': [
-            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
-            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'document', 'items': ['Maximize','Preview','-','NewPage', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy','-', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
             {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
             {'name': 'forms',
-             'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
-                       'HiddenField']},
+             'items': [ 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton'
+                       ]},
+             {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv'
+                       ]},          
             '/',
             {'name': 'basicstyles',
              'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
-            {'name': 'paragraph',
-             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
-                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
-                       'Language']},
-            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
-            {'name': 'insert',
-             'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+             {'name': 'insert',
+             'items': ['Image', 'Flash','Embed','-', 'Table', 'HorizontalRule','PageBreak','-', 'EmojiPanel', 'SpecialChar','CodeSnippet','Mathjax']},
+           
+            
+          
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor','-','Scayt']},
+              
+           {'name':'textPosition',
+            'items':['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'
+                       ]},
             '/',
             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
             {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
-            {'name': 'about', 'items': ['About']},
-            '/',  # put this to force next toolbar on new line
-            {'name': 'yourcustomtools', 'items': [
-                # put the name of your editor.ui.addButton here
-                'Preview',
-                'Maximize',
-
-            ]},
+            {'name': 'tools', 'items': ['Maximize','-','Preview','-','ShowBlocks']},
+           
+     
+         
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
         # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
@@ -207,14 +205,19 @@ CKEDITOR_CONFIGS = {
         # 'filebrowserWindowWidth': 940,
         # 'toolbarCanCollapse': True,
         # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'codeSnippet_theme':'monokai_sublime',
+        'mathJaxLib':'//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
+        'toolbarCanCollapse': True,
         'tabSpaces': 4,
+        'width':'100%',
+        'embed_provider':'//ckeditor.iframe.ly/api/oembed?url={url}&callback={callback}',
         'extraPlugins': ','.join([
             'uploadimage', # the upload image feature
             # your extra plugins here
             'div',
             'autolink',
             'autoembed',
-            'embedsemantic',
+            'embed', #Add EmbedSemantic to toolbar
             'autogrow',
             # 'devtools',
             'widget',
@@ -222,13 +225,29 @@ CKEDITOR_CONFIGS = {
             'clipboard',
             'dialog',
             'dialogui',
-            'elementspath'
+            'elementspath',
+            'codesnippet',#Add using CodeSnippet
+            'mathjax',#use Mathjax
+            'emoji',
+           'wordcount',
+            'autocorrect',
+            'scayt',
+            'imageresponsive',
+        
+   
+            
+            
+        
+        
+           
         ]),
+
+
+        
         
       # Configure your file manager integration. This example uses CKFinder 3 for PHP.
      
-    }
-}
+    }}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
